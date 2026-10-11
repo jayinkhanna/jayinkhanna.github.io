@@ -7,6 +7,7 @@ import { ChevronDown } from "lucide-react";
 const resourceTitles: Record<string, string> = {
   'enhancing-trust-llms-notes': 'Enhancing trust in LLMs notes',
   'thesis-poster': 'Thesis Poster',
+  'waveform-to-mel-spectrogram-video': 'Waveform to Mel-Spectrogram Pipeline explanation video',
   'speech-tsm-gans': 'Speech Time Scale Modification with GANs',
   'speech-tsm-gans-presentation': 'Speech TSM using GANs - Presentation',
   'statistics-generative-models': 'Statistics for Generative Models',
@@ -126,6 +127,7 @@ const tracks = [
     ],
     resources: [
       'thesis-poster',
+      'waveform-to-mel-spectrogram-video',
       'speech-tsm-gans',
       'speech-tsm-gans-presentation',
       'statistics-generative-models',

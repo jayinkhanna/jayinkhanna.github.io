@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 
 const resources = [
   { slug: 'thesis-poster', title: 'Thesis Poster' },
+  { slug: 'waveform-to-mel-spectrogram-video', title: 'Waveform to Mel-Spectrogram Pipeline explanation video' },
   { slug: 'speech-tsm-gans', title: 'Speech Time Scale Modification with GANs' },
   { slug: 'speech-tsm-gans-presentation', title: 'Speech time-scale modification using GANs- Presentation' },
   { slug: 'statistics-generative-models', title: 'Statistics for Generative models' },

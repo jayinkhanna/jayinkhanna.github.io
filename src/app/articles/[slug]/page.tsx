@@ -11,6 +11,7 @@ interface ArticleContent {
   fullWriteUp?: string;
   pdfSrc?: string | null;
   videoSrc?: string | null;
+  videoHeading?: string;
   notionSrc?: string | null;
   presentationSrc?: string;
   author?: string;
@@ -45,6 +46,18 @@ const allArticlesContent: ArticleContent[] = [
     videoSrc: 'https://www.youtube.com/embed/s2kADOhVYWQ',
     metadataLine: 'By Jayin Khanna | Lecture',
     fullWriteUp: `<p>A lecture covering the mathematical foundations and applications of Flow Matching in generative models.</p>`,
+  },
+  {
+    slug: 'waveform-to-mel-spectrogram-video',
+    title: 'Waveform to Mel-Spectrogram Pipeline explanation video',
+    pageTitle: 'Waveform to Mel-Spectrogram Pipeline explanation video',
+    author: 'Jayin Khanna',
+    category: 'Speech Processing',
+    pdfSrc: null,
+    videoSrc: 'https://www.youtube.com/embed/pN2Swc8x-GU',
+    videoHeading: 'Explanation Video',
+    metadataLine: 'By Jayin Khanna | Explanation Video',
+    fullWriteUp: `<p>A step-by-step animated explanation (made with Manim) of how a mel-spectrogram is created from a raw waveform: sampling, framing and windowing, the STFT, and the mel filterbank with log compression.</p>`,
   },
   {
     slug: 'thesis-poster',
@@ -279,7 +292,7 @@ export default async function ArticleDetailPage({ params }: { params: Promise<{ 
       {article.videoSrc && (
         <section className="my-12">
           <h2 className="text-3xl font-headline mb-6 text-primary text-center">
-            Lecture Video
+            {article.videoHeading ?? 'Lecture Video'}
           </h2>
           <div className="relative w-full" style={{ paddingTop: '56.25%' }}>
             <iframe
