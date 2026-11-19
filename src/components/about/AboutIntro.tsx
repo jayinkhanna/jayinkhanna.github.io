@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
-import { ArrowRight, Mail, FileText, Linkedin, Github, NotebookText } from 'lucide-react';
+import { ArrowRight, Mail, FileText, Linkedin, Github, NotebookText, Star } from 'lucide-react';
 import { SOCIAL_LINKS } from '@/lib/constants';
 import { withBasePath } from '@/lib/utils';
 
@@ -15,24 +15,76 @@ const contactLinks = [
 
 const ME = 'Jayin Khanna';
 
-const publications = [
-  {
-    title: 'Repairing the Trustworthiness of Distilled Language Models',
-    authors: ['Kumar Shubham', 'Devendra Vyas', 'Vidushi Agarwal', 'Jayin Khanna', 'Prathosh AP'],
-    venue: 'AI4GOOD Workshop @ NeurIPS 2026 [Under Review]',
-    note: 'arXiv preprint coming by end of month',
+const STATUS_STYLES: Record<string, { badge: string; dot: string }> = {
+  'Under Review': {
+    badge: 'border-amber-500/60 bg-amber-500/15 text-amber-700 dark:text-amber-400',
+    dot: 'bg-amber-500',
   },
+  'arXiv Preprint': {
+    badge: 'border-sky-500/60 bg-sky-500/15 text-sky-700 dark:text-sky-400',
+    dot: 'bg-sky-500',
+  },
+  'In Preparation': {
+    badge: 'border-violet-500/60 bg-violet-500/15 text-violet-700 dark:text-violet-400',
+    dot: 'bg-violet-500',
+  },
+};
+const DEFAULT_STATUS_STYLE = {
+  badge: 'border-primary/60 bg-primary/15 text-primary',
+  dot: 'bg-primary',
+};
+
+const publications: {
+  title: string;
+  authors: string[];
+  firstAuthor?: 'first' | 'co-first';
+  equalContribution?: string[];
+  venue: string;
+  note?: string;
+}[] = [
   {
-    title: 'Steering Away from Harm: Safety-Contrastive Flow Matching for Inference-Time Correction of Text-to-Image Diffusion Models',
-    authors: ['Jayin Khanna', 'Nasrin Imanpour', 'Renjith Prasad Kaippilly Mana', 'Suranjana Trivedy', 'Amitava Das', 'Amit Sheth'],
-    venue: 'ICLR 2027 [Under Review]',
-    note: 'arXiv preprint coming by end of month',
+    title: 'SCULPT: Spatially Constrained Updates via Learned Perceptual Trajectories for Safe Image Generation',
+    firstAuthor: 'co-first',
+    authors: [
+      'Nasrin Imanpour',
+      'Jayin Khanna',
+      'Renjith Prasad Kaippilly Mana',
+      'Aayush Ranjan',
+      'Samarth Raina',
+      'Suranjana Trivedy',
+      'Amit Sheth',
+      'Amitava Das',
+    ],
+    equalContribution: ['Nasrin Imanpour', 'Jayin Khanna'],
+    venue: 'CVPR 2027 [Under Review]',
+    note: 'arXiv preprint coming soon',
   },
   {
     title: 'Evaluation of Classical and Deep Learning Speech Time-Scale Modification: A Comparative Study',
+    firstAuthor: 'first',
     authors: ['Jayin Khanna', 'Jesuraj Bandekar', 'Prasanta Kumar Ghosh'],
-    venue: '',
+    venue: 'JASA (Journal of the Acoustical Society of America) [In Preparation]',
     note: 'arXiv preprint coming by mid-November',
+  },
+  {
+    title: 'Repairing the Trustworthiness of Distilled Language Models',
+    authors: ['Kumar Shubham', 'Devendra Vyas', 'Vidushi Agarwal', 'Jayin Khanna', 'Prathosh AP'],
+    venue: 'AI4GOOD Workshop @ NeurIPS 2026 [arXiv Preprint]',
+  },
+  {
+    title: 'SafeSG: Scene-Graph Guided Repair for Safer Next-Scale Image Generation',
+    authors: [
+      'Samarth Raina',
+      'Renjith Prasad Kaippilly Mana',
+      'Aayush Ranjan',
+      'Nasrin Imanpour',
+      'Jayin Khanna',
+      'Suranjana Trivedy',
+      'Amit Sheth',
+      'Amitava Das',
+    ],
+    venue: 'CVPR 2027 [Under Review]',
+    note: 'arXiv preprint coming soon',
   },
 ];
 
@@ -66,7 +118,7 @@ const AboutIntro = () => {
               Science from IIT Madras.
             </p>
             <p>
-              I am currently working as a Project Associate at the{' '}
+              I am currently working as a Project Associate-I at the{' '}
               <a
                 href="https://prathosh.in/"
                 target="_blank"
@@ -138,6 +190,12 @@ const AboutIntro = () => {
         <div className="space-y-4">
           {publications.map((pub) => (
             <div key={pub.title} className="border border-border rounded-md p-5 bg-card">
+              {pub.firstAuthor && (
+                <p className="mb-1.5 inline-flex items-center gap-1 text-xs font-medium uppercase tracking-wider text-foreground/70">
+                  <Star className="h-3 w-3 fill-current" />
+                  {pub.firstAuthor === 'first' ? 'First Author' : 'Co-First Author'}
+                </p>
+              )}
               <h3 className="text-base md:text-lg font-semibold text-foreground leading-snug">{pub.title}</h3>
               <p className="mt-2 text-sm text-foreground/85">
                 {pub.authors.map((a, i) => (
@@ -149,16 +207,39 @@ const AboutIntro = () => {
                     ) : (
                       a
                     )}
+                    {pub.equalContribution?.includes(a) && <sup>*</sup>}
                     {i < pub.authors.length - 1 ? ', ' : ''}
                   </span>
                 ))}
               </p>
-              {pub.venue && <p className="mt-2 text-sm italic text-muted-foreground">{pub.venue}</p>}
-              <p className="mt-3">
-                <span className="inline-flex items-center rounded-full border border-primary bg-primary/15 px-3 py-1 text-xs font-semibold text-primary">
-                  📄 {pub.note}
-                </span>
-              </p>
+              {pub.equalContribution && (
+                <p className="mt-1 text-xs text-muted-foreground">* Equal contribution</p>
+              )}
+              {pub.venue && (() => {
+                const status = pub.venue.match(/\[(.*?)\]/)?.[1];
+                const style = (status && STATUS_STYLES[status]) || DEFAULT_STATUS_STYLE;
+                return (
+                  <p className="mt-2 flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-muted-foreground">
+                    <span className="italic">{pub.venue.replace(/\s*\[.*?\]\s*/, '')}</span>
+                    {status && (
+                      <span className={`inline-flex items-center gap-1.5 rounded-full border px-2.5 py-0.5 text-xs font-semibold not-italic ${style.badge}`}>
+                        <span className="relative flex h-2 w-2">
+                          <span className={`absolute inline-flex h-full w-full animate-ping rounded-full opacity-75 ${style.dot}`} />
+                          <span className={`relative inline-flex h-2 w-2 rounded-full ${style.dot}`} />
+                        </span>
+                        {status}
+                      </span>
+                    )}
+                  </p>
+                );
+              })()}
+              {pub.note && (
+                <p className="mt-3">
+                  <span className="inline-flex items-center rounded-full border border-primary bg-primary/15 px-3 py-1 text-xs font-semibold text-primary">
+                    📄 {pub.note}
+                  </span>
+                </p>
+              )}
             </div>
           ))}
         </div>
