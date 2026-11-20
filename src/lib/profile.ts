@@ -268,7 +268,11 @@ export const HONORS: Honor[] = [
     detail: 'Shiv Nadar University',
     url: 'https://drive.google.com/file/d/1QZlugsJLmoUqB1r7kUPfDfmEkF4-MJrS/view?usp=sharing',
   },
-  { text: 'Dean’s List, Monsoon 2025', detail: 'Shiv Nadar University' },
+  {
+    text: 'Dean’s List, Monsoon 2025',
+    detail: 'Shiv Nadar University',
+    url: 'https://drive.google.com/file/d/1_VZVRGNywlh3b2YTbS2-NtD5sRnBLFMM/view?usp=sharing',
+  },
   {
     text: 'Summer Research Fellowship, IISc Bangalore',
     detail: 'Indian Academy of Sciences, INSA and NASI · top 10% nationwide · stipend and travel grant',
@@ -282,6 +286,7 @@ export const HONORS: Honor[] = [
   {
     text: 'Research presented at SUMMIT 2.0 Conference',
     detail: 'sEMG stress classification with CNNs · Shiv Nadar University',
+    url: 'https://drive.google.com/file/d/12tbXQ5spiteXmxL7ESEMnYpZPdW1tCV7/view?usp=sharing',
   },
   { text: '99.59 percentile (top 0.5%) in CUET Mathematics 2022', detail: 'Among 2.29 lakh students' },
   { text: 'CBSE Certificate of Merit, Mathematics (100%)', detail: 'Awarded to the top 0.1%' },
