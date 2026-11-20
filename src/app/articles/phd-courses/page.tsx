@@ -3,14 +3,14 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 
 const resources = [
-  { slug: 'latent-diffusion-presentation', title: 'Latent Diffusion Model Paper Presentation' },
+  { slug: 'latent-diffusion-presentation', title: 'CSD 715: Latent Diffusion Model Paper Presentation' },
   { slug: 'csd722-depth-video-gen', title: 'CSD 722 Project presentation: Depth Conditioned Video Generation' },
-  { slug: 'contrastive-learning-simclr-ijepa', title: 'Contrastive Learning: SimCLR & I-JEPA' },
-  { slug: 'variational-autoencoders', title: 'Variational Autoencoders (VAEs)' },
-  { slug: 'vision-transformer-vit', title: 'Vision Transformer (ViT)' },
+  { slug: 'contrastive-learning-simclr-ijepa', title: 'CSD 662: Contrastive Learning: SimCLR & I-JEPA' },
+  { slug: 'variational-autoencoders', title: 'CSD 662: Variational Autoencoders (VAEs)' },
+  { slug: 'vision-transformer-vit', title: 'CSD 662: Vision Transformer (ViT)' },
   { slug: 'statistics-generative-models', title: 'Statistics for Generative models' },
   { slug: 'flow-matching-lecture', title: 'Lecture on Flow Matching' },
-  { slug: 'ddpm-notes', title: 'Denoising Diffusion Probabilistic Models Notes' },
+  { slug: 'ddpm-notes', title: 'CSD 662: Denoising Diffusion Probabilistic Models Notes' },
 ];
 
 const sectionAnimationProps = {

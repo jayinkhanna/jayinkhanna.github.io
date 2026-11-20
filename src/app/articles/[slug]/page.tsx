@@ -24,7 +24,7 @@ const allArticlesContent: ArticleContent[] = [
     slug: 'enhancing-trust-llms-notes',
     title: 'Enhancing trust in LLMs notes',
     pageTitle: 'Enhancing trust in LLMs notes',
-    metadataLine: 'By Jayin Khanna | Research Notes',
+    metadataLine: 'By Jayin Khanna | Research Work',
     pdfSrc: '/reports/enhancing_trustworthiness_notes.pdf',
     fullWriteUp: `<p>Notes on the post-hoc trustworthiness repair method for distilled LLMs — EK-FAC-preconditioned gradient ascent with PBRF curvature correction, surrogate proxy datasets, and the odds-ratio preference objective.</p>`,
   },
@@ -32,7 +32,7 @@ const allArticlesContent: ArticleContent[] = [
     slug: 'theory-of-llms-notes',
     title: 'Theory of LLMs — Notion Notes',
     pageTitle: 'Theory of LLMs — Notion Notes',
-    metadataLine: 'By Jayin Khanna | Research Notes',
+    metadataLine: 'By Jayin Khanna | Research Work',
     pdfSrc: '/reports/theory-of-llms-notes.pdf',
     fullWriteUp: `<p>Detailed notes on the paper <em>Efficient and Minimax Optimal In-context Nonparametric Regression with Transformers</em> — covering the problem statement, pretraining setup, transformer architecture, the main theorem (Theorem 3.2), and the full proof decomposition through Lemmas B.2–B.10.</p>`,
   },
@@ -77,8 +77,8 @@ const allArticlesContent: ArticleContent[] = [
   },
   {
     slug: 'latent-diffusion-presentation',
-    title: 'Latent Diffusion Model Paper Presentation',
-    pageTitle: 'Latent Diffusion Model Paper Presentation',
+    title: 'CSD 715: Latent Diffusion Model Paper Presentation',
+    pageTitle: 'CSD 715: Latent Diffusion Model Paper Presentation',
     metadataLine: 'By Jayin Khanna | Presentation',
     pdfSrc: '/reports/LDM_presentation.pdf',
     fullWriteUp: `<p>This document is the Latent Diffusion Model paper presentation.</p>`
@@ -110,8 +110,8 @@ const allArticlesContent: ArticleContent[] = [
   },
   {
     slug: 'contrastive-learning-simclr-ijepa',
-    title: 'Contrastive Learning: SimCLR & I-JEPA',
-    pageTitle: 'Contrastive Learning: SimCLR & I-JEPA',
+    title: 'CSD 662: Contrastive Learning: SimCLR & I-JEPA',
+    pageTitle: 'CSD 662: Contrastive Learning: SimCLR & I-JEPA',
     metadataLine: 'CSD 662: Advanced Deep Learning',
     pdfSrc: "/reports/SimCLR_I-JEPA.pdf",
     fullWriteUp: `
@@ -142,16 +142,16 @@ const allArticlesContent: ArticleContent[] = [
   },
   {
     slug: 'ddpm-notes',
-    title: 'Denoising Diffusion Probabilistic Models Notes',
-    pageTitle: 'Denoising Diffusion Probabilistic Models Notes',
+    title: 'CSD 662: Denoising Diffusion Probabilistic Models Notes',
+    pageTitle: 'CSD 662: Denoising Diffusion Probabilistic Models Notes',
     metadataLine: 'By Jayin Khanna | Topic Report',
     pdfSrc: '/reports/ddpm_notes.pdf',
     fullWriteUp: `<p>This document provides a comprehensive overview of Denoising Diffusion Probabilistic Models (DDPMs).</p>`
   },
   {
     slug: 'variational-autoencoders',
-    title: 'Variational Autoencoders (VAEs)',
-    pageTitle: 'Variational Autoencoders (VAEs)',
+    title: 'CSD 662: Variational Autoencoders (VAEs)',
+    pageTitle: 'CSD 662: Variational Autoencoders (VAEs)',
     metadataLine: 'By Jayin Khanna | Topic Report',
     pdfSrc: '/reports/VAE.pdf',
     fullWriteUp: `<p>This document provides an overview of Variational Autoencoders (VAEs), covering their theoretical foundations and practical applications in generative modeling.</p>`
@@ -197,8 +197,8 @@ const allArticlesContent: ArticleContent[] = [
   },
   {
     slug: 'vision-transformer-vit',
-    title: 'Vision Transformer (ViT)',
-    pageTitle: 'Vision Transformer (ViT)',
+    title: 'CSD 662: Vision Transformer (ViT)',
+    pageTitle: 'CSD 662: Vision Transformer (ViT)',
     metadataLine: 'By Jayin Khanna | Topic Report',
     pdfSrc: '/reports/ViT.pdf',
     fullWriteUp: `<p>This document provides a comprehensive overview of the Vision Transformer (ViT) architecture.</p>`

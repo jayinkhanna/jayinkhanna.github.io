@@ -54,6 +54,7 @@ const projectsData = [
   },
   {
     slug: 'financial-markets-time-series-sentiment',
+    summary: 'Regime clustering of US bond-yield indicators (PCA and mutual information; silhouette 0.45, ANOVA p ≈ 10⁻¹⁵⁴).',
     title: 'Time Series and Sentiment Analysis in US Financial Markets using Deep Learning',
     year: '2024–2025',
     supervisorName: 'Dr. Charu Sharma (Mathematics Dept, SNU)',
@@ -66,6 +67,7 @@ const projectsData = [
   },
   {
     slug: 'investor-behavior-analysis-dl',
+    summary: 'Unsupervised multimodal model (face, transcript, tabular) scoring investor emotion and likelihood on Shark Tank videos.',
     title: 'Research Assistant: Investor Behavior Analysis using Deep Learning',
     year: '2024–2025',
     supervisorName: 'Dr. Ashish Vazirani',
@@ -79,6 +81,11 @@ const projectsData = [
   },
 ];
 
+const MAIN_PROJECTS = projectsData.slice(0, 3);
+const OTHER_PROJECTS = projectsData.slice(3);
+
+const SELF_BUILDS = 'LLMs coded from scratch · Neural temporal point processes · Image and video dehazing · AI Othello player';
+
 const sectionAnimationProps = {
   initial: { opacity: 0, y: 20 },
   whileInView: { opacity: 1, y: 0 },
@@ -88,21 +95,21 @@ const sectionAnimationProps = {
 
 const ProjectsPage = () => {
   return (
-    <div className="container mx-auto px-4 py-12 md:py-20 max-w-6xl">
+    <div className="mx-auto max-w-5xl px-4 py-10 md:py-14">
       <motion.header
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="text-center mb-16"
+        className="mb-8"
       >
-        <h1 className="text-4xl md:text-5xl font-headline mb-4">Projects</h1>
-        <p className="text-xl text-muted-foreground">
-          Research projects, collaborations, and independent work.
+        <h1 className="font-headline text-4xl font-bold text-foreground">Projects</h1>
+        <p className="mt-2 max-w-3xl text-base text-foreground/80">
+          Selected research projects beyond the main publications, each with its supervisor and outcome. Smaller and earlier work is listed below for completeness.
         </p>
       </motion.header>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        {projectsData.map((project, index) => (
+        {MAIN_PROJECTS.map((project, index) => (
           <motion.div
             key={project.slug}
             {...sectionAnimationProps}
@@ -182,6 +189,31 @@ const ProjectsPage = () => {
           </motion.div>
         ))}
       </div>
+
+      <section className="mt-14" aria-labelledby="other-projects">
+        <h2 id="other-projects" className="font-headline text-2xl text-foreground md:text-3xl">
+          Other projects
+        </h2>
+        <p className="mt-1 text-sm text-muted-foreground">Smaller or earlier work, included for completeness.</p>
+        <ul className="mt-5 divide-y divide-border rounded-lg border border-border bg-card">
+          {OTHER_PROJECTS.map((project) => (
+            <li key={project.slug} className="p-4">
+              <div className="flex flex-col gap-0.5 sm:flex-row sm:items-baseline sm:justify-between">
+                <Link href={`/projects/${project.slug}/`} className="text-sm font-semibold text-foreground hover:underline underline-offset-4">
+                  {project.title}
+                </Link>
+                <span className="shrink-0 text-xs text-muted-foreground">{project.year}</span>
+              </div>
+              <p className="mt-1 text-sm text-foreground/80">{project.summary}</p>
+              <p className="mt-1 text-xs text-muted-foreground">Supervisor: {project.supervisorName}</p>
+            </li>
+          ))}
+          <li className="p-4">
+            <p className="text-sm font-semibold text-foreground">Self-driven builds</p>
+            <p className="mt-1 text-sm text-foreground/80">{SELF_BUILDS}</p>
+          </li>
+        </ul>
+      </section>
     </div>
   );
 };

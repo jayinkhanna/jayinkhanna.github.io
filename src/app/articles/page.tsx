@@ -11,13 +11,13 @@ const resourceTitles: Record<string, string> = {
   'speech-tsm-gans': 'Speech Time Scale Modification with GANs',
   'speech-tsm-gans-presentation': 'Speech TSM using GANs - Presentation',
   'statistics-generative-models': 'Statistics for Generative Models',
-  'ddpm-notes': 'Denoising Diffusion Probabilistic Models Notes',
+  'ddpm-notes': 'CSD 662: Denoising Diffusion Probabilistic Models Notes',
   'generative-models-overview': 'Generative Models: A Mathematical Overview',
-  'latent-diffusion-presentation': 'Latent Diffusion Model Paper Presentation',
+  'latent-diffusion-presentation': 'CSD 715: Latent Diffusion Model Paper Presentation',
   'csd722-depth-video-gen': 'CSD 722: Depth Conditioned Video Generation',
-  'contrastive-learning-simclr-ijepa': 'Contrastive Learning: SimCLR & I-JEPA',
-  'variational-autoencoders': 'Variational Autoencoders (VAEs)',
-  'vision-transformer-vit': 'Vision Transformer (ViT)',
+  'contrastive-learning-simclr-ijepa': 'CSD 662: Contrastive Learning: SimCLR & I-JEPA',
+  'variational-autoencoders': 'CSD 662: Variational Autoencoders (VAEs)',
+  'vision-transformer-vit': 'CSD 662: Vision Transformer (ViT)',
   'flow-matching-lecture': 'Lecture on Flow Matching',
   'trce-paper-presentation': 'TRCE Paper Presentation',
   'principal-component-analysis': 'Principal Component Analysis',
@@ -140,11 +140,11 @@ const tracks = [
     title: 'PhD Research Courses',
     description: 'I completed 5 PhD-level courses during my undergraduate degree. These are the resources and notes I created while completing them.',
     list: [
-      'Advanced Deep Learning',
-      'Advanced Computer Vision',
-      'Special Topics in AI',
-      'Measure & Integration',
-      'Stochastic Processes',
+      'CSD 662: Advanced Deep Learning',
+      'CSD 722: Advanced Computer Vision',
+      'CSD 715: Special Topics in AI',
+      'MAT 620: Measure & Integration',
+      'MAT 584: Stochastic Processes',
     ],
     resources: [
       'latent-diffusion-presentation',
@@ -245,20 +245,20 @@ const TrackDescription = ({ track }: { track: (typeof tracks)[number] }) => {
 
 const ArticlesLandingPage = () => {
   return (
-    <div className="container mx-auto px-4 py-12 md:py-20 max-w-7xl">
+    <div className="mx-auto max-w-5xl px-4 py-10 md:py-14">
       <motion.header
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="text-center mb-16"
+        className="mb-8"
       >
-        <h1 className="text-4xl md:text-5xl font-headline mb-4">Research</h1>
-        <p className="text-xl text-muted-foreground">
-          A curated collection of my research, organised by track.
+        <h1 className="font-headline text-4xl font-bold text-foreground">Research Work</h1>
+        <p className="mt-2 max-w-3xl text-base text-foreground/80">
+          My technical notes, lecture write-ups, paper presentations and thesis material, organised by research track.
         </p>
       </motion.header>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
         {tracks.map((track, index) => (
           <motion.div
             key={track.slug}
@@ -266,8 +266,8 @@ const ArticlesLandingPage = () => {
             transition={{ duration: 0.5, delay: index * 0.08 }}
             className="border border-primary/40 rounded-xl p-6 hover:border-primary transition-all duration-300 bg-card flex flex-col"
           >
-            <h2 className="text-2xl font-headline text-primary mb-3 text-center">{track.title}</h2>
-            <div className="text-base text-foreground/80 leading-relaxed mb-4">
+            <h2 className="mb-3 font-headline text-xl font-bold text-foreground">{track.title}</h2>
+            <div className="text-sm text-foreground/80 leading-relaxed mb-4">
               <TrackDescription track={track} />
               {track.list && (
                 <ol className="list-decimal list-inside mt-2">

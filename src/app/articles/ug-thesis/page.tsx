@@ -8,7 +8,7 @@ const resources = [
   { slug: 'speech-tsm-gans', title: 'Speech Time Scale Modification with GANs' },
   { slug: 'speech-tsm-gans-presentation', title: 'Speech time-scale modification using GANs- Presentation' },
   { slug: 'statistics-generative-models', title: 'Statistics for Generative models' },
-  { slug: 'ddpm-notes', title: 'Denoising Diffusion Probabilistic Models Notes' },
+  { slug: 'ddpm-notes', title: 'CSD 662: Denoising Diffusion Probabilistic Models Notes' },
   { slug: 'generative-models-overview', title: 'Generative Models: A Mathematical Overview' },
 ];
 

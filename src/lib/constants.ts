@@ -1,14 +1,17 @@
+import { PROFILE } from './profile';
+
 export const NAV_LINKS = [
-  { href: '/', label: 'Home' },
-  { href: '/articles', label: 'Research' },
+  { href: '/', label: 'About' },
+  { href: '/publications', label: 'Publications' },
+  { href: '/articles', label: 'Research Work' },
   { href: '/projects', label: 'Projects' },
-  { href: '/academic-development', label: 'Academic Development' },
-  { href: '/achievements', label: 'Achievements' },
+  { href: '/experience', label: 'Experience' },
+  { href: '/honors', label: 'Honors' },
   { href: '/resume', label: 'CV' },
 ];
 
 export const SOCIAL_LINKS = {
-  github: "https://github.com/jk-2604",
-  linkedin: "https://www.linkedin.com/in/jayin-khanna-95a027212",
-  email: "mailto:jayin.research@gmail.com",
+  github: PROFILE.github,
+  linkedin: PROFILE.linkedin,
+  email: `mailto:${PROFILE.email}`,
 };

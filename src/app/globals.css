@@ -5,99 +5,99 @@
 
 @layer base {
   :root {
-    --background: 248 28% 96%; /* Subtle blue-lavender, academic paper tone */
-    --foreground: 240 25% 18%; /* Dark ink navy */
+    --background: 37 38% 91%;          /* beige */
+    --foreground: 25 32% 14%;          /* deep brown ink */
 
-    --card: 250 26% 91%; /* Slightly darker purple to set sections apart */
-    --card-foreground: 240 25% 18%;
+    --card: 39 50% 96%;                /* warm cream */
+    --card-foreground: 25 32% 14%;
 
-    --popover: 250 26% 91%;
-    --popover-foreground: 240 25% 18%;
+    --popover: 39 50% 96%;
+    --popover-foreground: 25 32% 14%;
 
-    --primary: 252 26% 40%; /* Muted academic indigo/purple */
-    --primary-foreground: 250 40% 98%;
+    --primary: 24 46% 31%;             /* light-to-mid brown */
+    --primary-foreground: 39 50% 96%;
 
-    --secondary: 250 24% 89%;
-    --secondary-foreground: 240 25% 18%;
+    --secondary: 36 30% 86%;
+    --secondary-foreground: 25 32% 14%;
 
-    --muted: 250 22% 90%;
-    --muted-foreground: 240 10% 42%;
+    --muted: 36 30% 86%;
+    --muted-foreground: 25 16% 36%;
 
-    --accent: 252 26% 40%;
-    --accent-foreground: 250 40% 98%;
+    --accent: 24 46% 31%;
+    --accent-foreground: 39 50% 96%;
 
     --destructive: 0 70% 45%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 248 18% 86%;
-    --input: 248 22% 94%;
-    --input-border: 248 18% 82%;
-    --ring: 252 26% 40%;
+    --border: 34 26% 78%;
+    --input: 37 30% 88%;
+    --input-border: 34 26% 74%;
+    --ring: 24 46% 31%;
 
     --radius: 0.5rem;
 
-    --chart-1: 252 26% 40%;
-    --chart-2: 252 26% 55%;
-    --chart-3: 220 20% 45%;
-    --chart-4: 220 15% 60%;
-    --chart-5: 220 15% 75%;
+    --chart-1: 24 46% 31%;
+    --chart-2: 24 40% 48%;
+    --chart-3: 30 25% 45%;
+    --chart-4: 32 20% 60%;
+    --chart-5: 34 20% 75%;
 
-    --sidebar-background: 248 25% 94%;
-    --sidebar-foreground: 240 25% 18%;
-    --sidebar-primary: 252 26% 40%;
-    --sidebar-primary-foreground: 250 40% 98%;
-    --sidebar-accent: 248 22% 91%;
-    --sidebar-accent-foreground: 240 25% 18%;
-    --sidebar-border: 248 18% 86%;
-    --sidebar-ring: 252 26% 40%;
+    --sidebar-background: 37 38% 91%;
+    --sidebar-foreground: 25 32% 14%;
+    --sidebar-primary: 24 46% 31%;
+    --sidebar-primary-foreground: 39 50% 96%;
+    --sidebar-accent: 36 30% 86%;
+    --sidebar-accent-foreground: 25 32% 14%;
+    --sidebar-border: 34 26% 78%;
+    --sidebar-ring: 24 46% 31%;
   }
 
   .dark {
-    --background: 240 22% 10%; /* Subtle dark blue-purple, not pure black */
-    --foreground: 248 20% 92%;
+    --background: 228 22% 9%;
+    --foreground: 40 15% 92%;
 
-    --card: 251 30% 15%; /* Darker, more saturated purple for sections */
-    --card-foreground: 248 20% 92%;
+    --card: 228 20% 12%;
+    --card-foreground: 40 15% 92%;
 
-    --popover: 251 30% 15%;
-    --popover-foreground: 248 20% 92%;
+    --popover: 228 20% 12%;
+    --popover-foreground: 40 15% 92%;
 
-    --primary: 252 40% 68%;
-    --primary-foreground: 252 30% 12%;
+    --primary: 230 75% 76%;
+    --primary-foreground: 228 30% 10%;
 
-    --secondary: 251 26% 17%;
-    --secondary-foreground: 248 20% 92%;
+    --secondary: 228 18% 16%;
+    --secondary-foreground: 40 15% 92%;
 
-    --muted: 251 24% 17%;
-    --muted-foreground: 240 10% 65%;
+    --muted: 228 18% 16%;
+    --muted-foreground: 228 8% 66%;
 
-    --accent: 252 40% 68%;
-    --accent-foreground: 252 30% 12%;
+    --accent: 230 75% 76%;
+    --accent-foreground: 228 30% 10%;
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 240 15% 20%;
-    --input: 240 15% 18%;
-    --input-border: 240 15% 22%;
-    --ring: 252 40% 68%;
+    --border: 228 14% 20%;
+    --input: 228 14% 18%;
+    --input-border: 228 14% 24%;
+    --ring: 230 75% 76%;
 
     --radius: 0.5rem;
 
-    --chart-1: 252 40% 68%;
-    --chart-2: 252 40% 78%;
+    --chart-1: 230 75% 76%;
+    --chart-2: 230 60% 66%;
     --chart-3: 220 20% 70%;
     --chart-4: 220 15% 75%;
     --chart-5: 220 15% 85%;
 
-    --sidebar-background: 240 22% 10%;
-    --sidebar-foreground: 248 20% 92%;
-    --sidebar-primary: 252 40% 68%;
-    --sidebar-primary-foreground: 252 30% 12%;
-    --sidebar-accent: 240 15% 18%;
-    --sidebar-accent-foreground: 248 20% 92%;
-    --sidebar-border: 240 15% 20%;
-    --sidebar-ring: 252 40% 68%;
+    --sidebar-background: 228 22% 9%;
+    --sidebar-foreground: 40 15% 92%;
+    --sidebar-primary: 230 75% 76%;
+    --sidebar-primary-foreground: 228 30% 10%;
+    --sidebar-accent: 228 14% 18%;
+    --sidebar-accent-foreground: 40 15% 92%;
+    --sidebar-border: 228 14% 20%;
+    --sidebar-ring: 230 75% 76%;
   }
 }
 
@@ -172,45 +172,33 @@
   }
 }
 
-#experience-section,
-#experience-section .container,
-#experience-section .p-6,
-#experience-section .experience-card,
-#experience-section .rounded-lg,
-#experience-section [class*="bg-"] {
-  background-color: transparent !important;
-  color: inherit !important;
-  border-color: inherit !important;
+@layer components {
+  /* Inline text link: readable, clearly clickable, no highlight blocks. */
+  .link {
+    @apply text-primary underline decoration-primary/40 underline-offset-4 transition-colors;
+  }
+  .link:hover {
+    @apply decoration-primary;
+  }
+  .section-eyebrow {
+    @apply text-xs font-semibold uppercase tracking-[0.14em] text-muted-foreground;
+  }
 }
 
-#experience-section .shadow-lg,
-#experience-section .hover\:shadow-primary\/20 {
-  box-shadow: none !important;
+html {
+  scroll-behavior: smooth;
 }
 
-#experience-section a,
-#experience-section p,
-#experience-section span,
-#experience-section h1,
-#experience-section h2,
-#experience-section h3 {
-  color: inherit !important;
-}
-
-    
-/* Inline text links: highlighted so they read as links.
-   Button-style links (rounded) are excluded. */
-a.text-primary:not([class*="rounded"]),
-a.text-accent:not([class*="rounded"]) {
-  text-decoration: none;
-  background-color: hsl(var(--primary) / 0.18);
-  border-radius: 4px;
-  padding: 0 4px;
-  -webkit-box-decoration-break: clone;
-  box-decoration-break: clone;
-  transition: background-color 0.15s ease;
-}
-a.text-primary:not([class*="rounded"]):hover,
-a.text-accent:not([class*="rounded"]):hover {
-  background-color: hsl(var(--primary) / 0.32);
+@media print {
+  @page {
+    size: A4;
+    margin: 11mm 12mm;
+  }
+  html,
+  body {
+    background: #fff !important;
+  }
+  article {
+    color: #111 !important;
+  }
 }
