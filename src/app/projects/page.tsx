@@ -23,6 +23,7 @@ const projectsData = [
   },
   {
     slug: 'csd722-depth-video-gen',
+    image: { src: '/media/depth-conditioning.jpg', alt: 'Example frames (top) and their estimated depth maps (bottom), used as the conditioning signal for video generation.' },
     title: 'CSD722 Project: Depth-Conditioned Video Generation using ControlNet & AnimateDiff',
     year: 'Jan – May 2026',
     supervisorName: 'Dr. Sumit Shekhar & Dr. Saurabh Shigwan (CSE Dept, SNU)',
@@ -38,6 +39,7 @@ const projectsData = [
   },
   {
     slug: 'semg-cnn-classification',
+    image: { src: '/media/semg-segments.jpg', alt: 'Combined sEMG recordings segmented into resting, recovery and task phases across trapezius muscles.' },
     title: 'Preprocessing Pipeline and Application of CNNs for Surface Electromyography (sEMG) Signal Classification',
     year: 'Jun – Dec 2025',
     supervisorName: 'Dr. Shilpi Modi, Sc.’E’',
@@ -116,6 +118,16 @@ const ProjectsPage = () => {
             transition={{ duration: 0.5, delay: index * 0.08 }}
             className="border border-primary/40 rounded-xl p-6 hover:border-primary transition-all duration-300 bg-card flex flex-col"
           >
+            {'image' in project && project.image && (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img
+                src={withBasePath(project.image.src)}
+                alt={project.image.alt}
+                loading="lazy"
+                className="mb-4 h-auto w-full rounded-lg border border-border bg-[#111214]"
+              />
+            )}
+
             {/* Header row */}
             <div className="flex flex-col gap-1 mb-3">
               <h2 className="text-lg font-semibold text-foreground leading-snug">
