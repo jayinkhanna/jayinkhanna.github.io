@@ -52,8 +52,8 @@ export default function HomePage() {
   return (
     <div className="mx-auto max-w-5xl px-4 pb-8 pt-10 md:pt-14">
       {/* Hero */}
-      <section className="grid grid-cols-1 gap-8 md:grid-cols-[220px_1fr] md:gap-10">
-        <div className="mx-auto w-full max-w-[220px] md:mx-0">
+      <section className="grid grid-cols-1 gap-8 md:grid-cols-[245px_1fr] md:gap-10">
+        <div className="mx-auto w-full max-w-[245px] md:mx-0">
           <div className="relative aspect-[3/4] w-full overflow-hidden rounded-lg border border-border bg-muted">
             <Image
               src={withBasePath('/images/my-photo.jpeg')}
@@ -63,7 +63,7 @@ export default function HomePage() {
               className="object-cover"
             />
           </div>
-          <p className="mt-3 text-center font-headline text-sm font-bold tracking-wider text-gradient-dreams">
+          <p className="mt-3 text-center font-headline text-base font-bold tracking-wider text-gradient-dreams">
             A HEAD FULL OF DREAMS
           </p>
         </div>

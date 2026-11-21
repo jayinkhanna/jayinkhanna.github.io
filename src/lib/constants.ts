@@ -2,9 +2,9 @@ import { PROFILE } from './profile';
 
 export const NAV_LINKS = [
   { href: '/', label: 'About' },
-  { href: '/publications', label: 'Publications' },
   { href: '/articles', label: 'Research Work' },
   { href: '/projects', label: 'Projects' },
+  { href: '/publications', label: 'Publications' },
   { href: '/experience', label: 'Experience' },
   { href: '/honors', label: 'Honors' },
   { href: '/resume', label: 'CV' },
