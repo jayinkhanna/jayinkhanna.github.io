@@ -321,29 +321,40 @@ export const TEACHING = [
   },
 ];
 
-export const EDUCATION = [
+export type EduItem = string | { text: string; tag: string };
+export type EduBlock =
+  | { kind: 'grid'; label?: string; items: EduItem[]; note?: string }
+  | { kind: 'text'; text: string };
+
+export const EDUCATION: {
+  degree: string;
+  school: string;
+  period: string;
+  lines: string[];
+  blocks: EduBlock[];
+  link?: { label: string; url: string };
+}[] = [
   {
     degree: 'BSc (Research) in Mathematics',
     school: 'Shiv Nadar University, Delhi-NCR',
     period: '2022 – 2026',
     lines: [],
     blocks: [
-      { kind: 'grid' as const, items: ['CGPA 8.95/10', 'First Class with Distinction', 'Rank 1 in the Mathematics batch'] },
+      { kind: 'grid' as const, items: ['CGPA 8.95/10', 'First Class with Distinction', 'Rank 1 in the Mathematics batch'] as (string | { text: string; tag: string })[] },
       { kind: 'text' as const, text: 'Minor in Computer Science & Engineering · Specialisations: AI & ML, Mathematical Finance' },
       {
         kind: 'grid' as const,
         label: 'Coursework',
         items: [
-          'Advanced Deep Learning',
-          'Advanced Computer Vision',
-          'Special Topics in AI',
-          'Measure & Integration',
-          'Stochastic Processes',
+          { text: 'Advanced Deep Learning', tag: 'Graduate level' },
+          { text: 'Advanced Computer Vision', tag: 'Graduate level' },
+          { text: 'Special Topics in AI', tag: 'Graduate level' },
+          { text: 'Measure & Integration', tag: 'Graduate level' },
+          { text: 'Stochastic Processes', tag: 'Graduate level' },
           'Real Analysis I & II',
           'Reinforcement Learning',
           'LLMs',
-        ],
-        note: 'The first five are PhD-level courses.',
+        ] as (string | { text: string; tag: string })[],
       },
     ],
     link: {
@@ -356,7 +367,7 @@ export const EDUCATION = [
     school: 'IIT Madras',
     period: '2023 – 2027 (expected)',
     lines: ['CGPA 8.80/10 · Foundation Level certificate completed'],
-    blocks: [] as never[],
+    blocks: [],
   },
 ];
 

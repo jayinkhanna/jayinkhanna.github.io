@@ -42,7 +42,7 @@ export default function HonorsPage() {
         </p>
       </header>
 
-      <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
+      <div className="grid grid-cols-1 gap-5 md:grid-cols-[1fr_1.5fr] lg:grid-cols-[1fr_1.85fr]">
         <Card title="Honors & awards" id="honors">
           <List items={HONORS} />
         </Card>
@@ -50,8 +50,11 @@ export default function HonorsPage() {
         <div className="space-y-5">
           <Card title="Education" id="education">
             <ul className="space-y-5">
-              {EDUCATION.map((e) => (
-                <li key={e.degree}>
+              {EDUCATION.map((e, idx) => (
+                <li
+                  key={e.degree}
+                  className={idx > 0 ? '-mx-5 !-mb-5 rounded-b-lg border-t border-border bg-muted/50 px-5 pb-5 pt-4' : undefined}
+                >
                   <p className="text-sm font-semibold text-foreground">{e.degree}</p>
                   <p className="text-sm text-foreground/80">
                     {e.school} · <span className="text-muted-foreground">{e.period}</span>
@@ -71,13 +74,20 @@ export default function HonorsPage() {
                     ) : (
                       <div key={i} className="mt-2">
                         {b.label && <p className="text-sm font-medium text-foreground">{b.label}</p>}
-                        <ul className="mt-1 grid grid-cols-1 gap-x-6 gap-y-1 text-sm text-foreground/80 sm:grid-cols-2">
-                          {b.items.map((item) => (
-                            <li key={item} className="flex gap-2">
-                              <span aria-hidden className="mt-[0.55em] h-1 w-1 shrink-0 rounded-full bg-primary" />
-                              <span>{item}</span>
-                            </li>
-                          ))}
+                        <ul className="mt-1 grid grid-cols-1 gap-x-4 gap-y-1 text-sm text-foreground/80 lg:grid-cols-2">
+                          {b.items.map((item) => {
+                            const text = typeof item === 'string' ? item : item.text;
+                            const tag = typeof item === 'string' ? undefined : item.tag;
+                            return (
+                              <li key={text} className="flex gap-2">
+                                <span aria-hidden className="mt-[0.55em] h-1 w-1 shrink-0 rounded-full bg-primary" />
+                                <span className="min-w-0">
+                                  <span className="whitespace-nowrap">{text}</span>
+                                  {tag && <span className="ml-1 whitespace-nowrap text-xs text-muted-foreground">({tag})</span>}
+                                </span>
+                              </li>
+                            );
+                          })}
                         </ul>
                         {b.note && <p className="mt-1.5 text-xs text-muted-foreground">{b.note}</p>}
                       </div>
