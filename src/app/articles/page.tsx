@@ -2,6 +2,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { withBasePath } from "@/lib/utils";
 import { ChevronDown } from "lucide-react";
 
 const resourceTitles: Record<string, string> = {
@@ -26,6 +27,32 @@ const resourceTitles: Record<string, string> = {
   'neural-networks-fundamentals': 'Neural Networks: Foundations and Architectures',
   'explainable-ai': 'Explainable AI: Attribution Techniques',
   'theory-of-llms-notes': 'Theory of LLMs — Notion Notes',
+};
+
+const trackPreviews: Record<string, { video?: string; poster?: string; image?: string; label: string }> = {
+  'phd-courses': {
+    video: '/media/flow-matching-snap.mp4',
+    poster: '/media/flow-matching-poster.jpg',
+    label: 'Clip from my lecture on flow matching: paths drawn from the noise distribution to the data distribution.',
+  },
+  'seminar-notes': {
+    image: '/media/pca-figure.jpg',
+    label: 'Principal component analysis: 3D data projected onto the PC1-PC2 plane.',
+  },
+  'interpretability-theory': {
+    image: '/media/trust-repair-figure.jpg',
+    label: 'Overview of post-hoc trustworthiness repair: a distilled student is repaired using a proxy corpus and a trustworthiness dataset.',
+  },
+  'safety-alignment': {
+    video: '/media/scfm-pipeline-snap.mp4',
+    poster: '/media/scfm-pipeline-poster.jpg',
+    label: 'Short clip from the SCFM training-pipeline animation: each unsafe CLIP embedding is moved along a straight path to its safe counterpart.',
+  },
+  'ug-thesis': {
+    video: '/media/mel-pipeline-snap.mp4',
+    poster: '/media/mel-pipeline-poster.jpg',
+    label: 'Short clip from the waveform-to-mel-spectrogram explainer video: the spectrogram builds up as a window slides along the waveform.',
+  },
 };
 
 const tracks = [
@@ -266,6 +293,28 @@ const ArticlesLandingPage = () => {
             transition={{ duration: 0.5, delay: index * 0.08 }}
             className="border border-primary/40 rounded-xl p-6 hover:border-primary transition-all duration-300 bg-card flex flex-col"
           >
+            {trackPreviews[track.slug]?.video && (
+              <video
+                className="mb-4 aspect-video w-full rounded-lg border border-border bg-black object-contain"
+                src={withBasePath(trackPreviews[track.slug].video!)}
+                poster={withBasePath(trackPreviews[track.slug].poster!)}
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="metadata"
+                aria-label={trackPreviews[track.slug].label}
+              />
+            )}
+            {trackPreviews[track.slug]?.image && (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img
+                className="mb-4 aspect-video w-full rounded-lg border border-border bg-white object-contain"
+                src={withBasePath(trackPreviews[track.slug].image!)}
+                alt={trackPreviews[track.slug].label}
+                loading="lazy"
+              />
+            )}
             <h2 className="mb-3 font-headline text-xl font-bold text-foreground">{track.title}</h2>
             <div className="text-sm text-foreground/80 leading-relaxed mb-4">
               <TrackDescription track={track} />

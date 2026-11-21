@@ -26,6 +26,14 @@ const NOTE_TRACKS = [
   { slug: 'seminar-notes', title: 'Seminar & Lecture Notes', line: 'Notes on diffusion, flow matching, VAEs, ViT, contrastive learning and more.' },
 ] as const;
 
+const TRACK_CLIPS: Record<string, { video?: string; poster?: string; image?: string }> = {
+  'phd-courses': { video: '/media/flow-matching-snap.mp4', poster: '/media/flow-matching-poster.jpg' },
+  'seminar-notes': { image: '/media/pca-figure.jpg' },
+  'interpretability-theory': { image: '/media/trust-repair-figure.jpg' },
+  'safety-alignment': { video: '/media/scfm-pipeline-snap.mp4', poster: '/media/scfm-pipeline-poster.jpg' },
+  'ug-thesis': { video: '/media/mel-pipeline-snap.mp4', poster: '/media/mel-pipeline-poster.jpg' },
+};
+
 const SectionHead = ({ title, href, cta, placeholder }: { title: string; href?: string; cta?: string; placeholder?: boolean }) => (
   <div className="mb-5 flex items-end justify-between gap-4">
     <h2 className="font-headline text-2xl text-foreground md:text-3xl">
@@ -188,6 +196,28 @@ export default function HomePage() {
                 href={`/articles/${t.slug}/`}
                 className="block h-full rounded-lg border border-border bg-card p-4 transition-colors hover:border-primary"
               >
+                {TRACK_CLIPS[t.slug]?.video && (
+                  <video
+                    className="mb-3 aspect-video w-full rounded-md border border-border bg-black object-contain"
+                    src={withBasePath(TRACK_CLIPS[t.slug].video!)}
+                    poster={withBasePath(TRACK_CLIPS[t.slug].poster!)}
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    preload="metadata"
+                    aria-label={`Preview clip: ${t.title}`}
+                  />
+                )}
+                {TRACK_CLIPS[t.slug]?.image && (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img
+                    className="mb-3 aspect-video w-full rounded-md border border-border bg-white object-contain"
+                    src={withBasePath(TRACK_CLIPS[t.slug].image!)}
+                    alt={`Figure: ${t.title}`}
+                    loading="lazy"
+                  />
+                )}
                 <span className="text-sm font-semibold text-foreground">{t.title}</span>
                 <span className="mt-1 block text-sm text-foreground/75">{t.line}</span>
               </Link>
