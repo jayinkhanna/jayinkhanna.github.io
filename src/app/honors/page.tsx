@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import { EDUCATION, HONORS, SERVICE, TEACHING } from '@/lib/profile';
 
 export const metadata: Metadata = {
@@ -93,11 +94,16 @@ export default function HonorsPage() {
                       </div>
                     ),
                   )}
-                  {e.link && (
-                    <a href={e.link.url} target="_blank" rel="noopener noreferrer" className="link mt-1.5 inline-block text-sm">
-                      {e.link.label}
-                    </a>
-                  )}
+                  {e.link &&
+                    (e.link.url.startsWith('/') ? (
+                      <Link href={e.link.url} className="link mt-1.5 inline-block text-sm">
+                        {e.link.label}
+                      </Link>
+                    ) : (
+                      <a href={e.link.url} target="_blank" rel="noopener noreferrer" className="link mt-1.5 inline-block text-sm">
+                        {e.link.label}
+                      </a>
+                    ))}
                 </li>
               ))}
             </ul>
