@@ -56,11 +56,33 @@ export default function HonorsPage() {
                   <p className="text-sm text-foreground/80">
                     {e.school} · <span className="text-muted-foreground">{e.period}</span>
                   </p>
-                  <ul className="mt-1.5 list-disc space-y-1 pl-5 text-sm text-foreground/80">
-                    {e.lines.map((l) => (
-                      <li key={l}>{l}</li>
-                    ))}
-                  </ul>
+                  {e.lines.length > 0 && (
+                    <ul className="mt-1.5 list-disc space-y-1 pl-5 text-sm text-foreground/80">
+                      {e.lines.map((l) => (
+                        <li key={l}>{l}</li>
+                      ))}
+                    </ul>
+                  )}
+                  {e.blocks.map((b, i) =>
+                    b.kind === 'text' ? (
+                      <p key={i} className="mt-2 text-sm text-foreground/80">
+                        {b.text}
+                      </p>
+                    ) : (
+                      <div key={i} className="mt-2">
+                        {b.label && <p className="text-sm font-medium text-foreground">{b.label}</p>}
+                        <ul className="mt-1 grid grid-cols-1 gap-x-6 gap-y-1 text-sm text-foreground/80 sm:grid-cols-2">
+                          {b.items.map((item) => (
+                            <li key={item} className="flex gap-2">
+                              <span aria-hidden className="mt-[0.55em] h-1 w-1 shrink-0 rounded-full bg-primary" />
+                              <span>{item}</span>
+                            </li>
+                          ))}
+                        </ul>
+                        {b.note && <p className="mt-1.5 text-xs text-muted-foreground">{b.note}</p>}
+                      </div>
+                    ),
+                  )}
                   {e.link && (
                     <a href={e.link.url} target="_blank" rel="noopener noreferrer" className="link mt-1.5 inline-block text-sm">
                       {e.link.label}

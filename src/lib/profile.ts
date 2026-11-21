@@ -326,10 +326,25 @@ export const EDUCATION = [
     degree: 'BSc (Research) in Mathematics',
     school: 'Shiv Nadar University, Delhi-NCR',
     period: '2022 – 2026',
-    lines: [
-      'CGPA 8.95/10 · First Class with Distinction · Rank 1 in the Mathematics batch',
-      'Minor in Computer Science & Engineering · Specialisations: AI & ML, Mathematical Finance',
-      'Coursework: Advanced Deep Learning, Advanced Computer Vision, Special Topics in AI, Measure & Integration, Stochastic Processes (five PhD-level courses), Real Analysis I & II, Reinforcement Learning, LLMs',
+    lines: [],
+    blocks: [
+      { kind: 'grid' as const, items: ['CGPA 8.95/10', 'First Class with Distinction', 'Rank 1 in the Mathematics batch'] },
+      { kind: 'text' as const, text: 'Minor in Computer Science & Engineering · Specialisations: AI & ML, Mathematical Finance' },
+      {
+        kind: 'grid' as const,
+        label: 'Coursework',
+        items: [
+          'Advanced Deep Learning',
+          'Advanced Computer Vision',
+          'Special Topics in AI',
+          'Measure & Integration',
+          'Stochastic Processes',
+          'Real Analysis I & II',
+          'Reinforcement Learning',
+          'LLMs',
+        ],
+        note: 'The first five are PhD-level courses.',
+      },
     ],
     link: {
       label: 'Full course list',
@@ -341,6 +356,7 @@ export const EDUCATION = [
     school: 'IIT Madras',
     period: '2023 – 2027 (expected)',
     lines: ['CGPA 8.80/10 · Foundation Level certificate completed'],
+    blocks: [] as never[],
   },
 ];
 
