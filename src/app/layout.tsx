@@ -50,7 +50,7 @@ const personJsonLd = {
     { '@type': 'CollegeOrUniversity', name: 'IIT Madras' },
   ],
   knowsAbout: ['Generative models', 'Diffusion models', 'Flow matching', 'AI safety', 'LLM trustworthiness'],
-  sameAs: ['https://github.com/jk-2604', 'https://www.linkedin.com/in/jayin-khanna-95a027212'],
+  sameAs: ['https://github.com/jayinkhanna', 'https://www.linkedin.com/in/jayin-khanna-95a027212'],
 };
 
 export default function RootLayout({

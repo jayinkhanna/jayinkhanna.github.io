@@ -10,7 +10,7 @@ export const PROFILE = {
   // Shown as a small status chip under the name. Set to '' to hide.
   status: 'Applying to PhD and MS programs in ML · Fall 2027',
   email: 'jayin.research@gmail.com',
-  github: 'https://github.com/jk-2604',
+  github: 'https://github.com/jayinkhanna',
   linkedin: 'https://www.linkedin.com/in/jayin-khanna-95a027212',
   cvUrl: '/resume',
   lastUpdated: 'November 2026',
