@@ -8,6 +8,7 @@ import { withBasePath } from "@/lib/utils";
 const projectsData = [
   {
     slug: 'fwi-seismic-velocity-prediction',
+    image: { src: '/media/fwi-comparison.png', alt: 'Velocity models recovered on a seismic benchmark by FWI with L2 and Wasserstein (W1) misfits, FWIDIP and FWIGAN.' },
     title: 'Full-Waveform Inversion for Seismic Velocity Prediction',
     year: 'Ongoing',
     supervisorName: 'Naveen Gupta & Divakar Vashisth',

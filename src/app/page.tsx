@@ -14,8 +14,8 @@ const firstAuthorCount = PUBLICATIONS.filter((p) => p.firstAuthor).length;
 
 const SNAPSHOT = [
   { value: String(PUBLICATIONS.length), label: 'Preprints', sub: `${firstAuthorCount} as first / co-first author` },
-  { value: 'Batch Topper Award', label: 'BSc Mathematics', sub: 'Shiv Nadar Univ., Batch of 2026' },
-  { value: '2nd Prize', label: 'Best UG Thesis', sub: 'Generative models for Speech TSM' },
+  { value: 'Rank 1', label: 'Batch Topper Award', sub: 'BSc Mathematics, Shiv Nadar Univ., 2026' },
+  { value: '2nd Prize', label: 'Best UG Thesis Award', sub: 'Generative models for Speech TSM' },
   { value: String(EXPERIENCE.length), label: 'Research positions', sub: 'IISc · AIISC · IIT KGP · UCSC · DRDO' },
 ];
 
@@ -156,7 +156,7 @@ export default function HomePage() {
       <section aria-label="At a glance" className="mt-10 grid grid-cols-2 gap-3 md:grid-cols-4">
         {SNAPSHOT.map((s) => (
           <div key={s.label} className="rounded-lg border border-border bg-card p-4">
-            <p className={`font-headline font-bold text-primary [font-variant-numeric:lining-nums] ${s.value.length > 10 ? 'whitespace-nowrap text-lg md:text-xl lg:text-[1.35rem]' : 'text-2xl md:text-3xl'}`}>{s.value}</p>
+            <p className="whitespace-nowrap font-headline text-2xl font-bold leading-tight text-primary [font-variant-numeric:lining-nums] md:text-[1.7rem]">{s.value}</p>
             <p className="mt-0.5 text-sm font-semibold text-foreground">{s.label}</p>
             <p className="mt-0.5 text-xs text-muted-foreground">{s.sub}</p>
           </div>
