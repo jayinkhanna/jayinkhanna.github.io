@@ -26,6 +26,12 @@ const NOTE_TRACKS = [
   { slug: 'seminar-notes', title: 'Seminar & Lecture Notes', line: 'Notes on diffusion, flow matching, VAEs, ViT, contrastive learning and more.' },
 ] as const;
 
+const HOME_PROJECTS = [
+  { slug: 'fwi-seismic-velocity-prediction', title: 'Full-Waveform Inversion for Seismic Velocity Prediction', year: 'Ongoing', line: 'Diffusion priors, flow matching and optimal-transport misfits (Wasserstein) to mitigate cycle-skipping in FWI.', image: '/media/fwi-comparison.png', alt: 'Velocity models recovered by FWI with L2 and Wasserstein misfits, FWIDIP and FWIGAN.' },
+  { slug: 'csd722-depth-video-gen', title: 'Depth-Conditioned Video Generation with ControlNet & AnimateDiff', year: 'Jan – May 2026', line: 'CSD 722 project on controllable video generation conditioned on estimated depth maps.', image: '/media/depth-conditioning.jpg', alt: 'Example frames and their estimated depth maps.' },
+  { slug: 'semg-cnn-classification', title: 'CNNs for Surface EMG Signal Classification', year: 'Jun – Dec 2025', line: 'ResNet and CNN stress classification from sEMG at 98% accuracy; presented at SUMMIT 2.0.', image: '/media/semg-segments.jpg', alt: 'sEMG recordings segmented into resting, recovery and task phases.' },
+];
+
 const TRACK_CLIPS: Record<string, { video?: string; poster?: string; image?: string }> = {
   'phd-courses': { video: '/media/flow-matching-snap.mp4', poster: '/media/flow-matching-poster.jpg' },
   'seminar-notes': { image: '/media/pca-figure.jpg' },
@@ -220,6 +226,32 @@ export default function HomePage() {
                 )}
                 <span className="text-sm font-semibold text-foreground">{t.title}</span>
                 <span className="mt-1 block text-sm text-foreground/75">{t.line}</span>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      {/* Projects */}
+      <section className="mt-14" id="projects">
+        <SectionHead title="Projects" href="/projects" cta="All projects" />
+        <ul className="grid grid-cols-1 gap-3 md:grid-cols-3">
+          {HOME_PROJECTS.map((p) => (
+            <li key={p.slug}>
+              <Link
+                href={`/projects/${p.slug}/`}
+                className="block h-full rounded-lg border border-border bg-card p-4 transition-colors hover:border-primary"
+              >
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  className="mb-3 aspect-video w-full rounded-md border border-border bg-[#111214] object-contain"
+                  src={withBasePath(p.image)}
+                  alt={p.alt}
+                  loading="lazy"
+                />
+                <span className="text-sm font-semibold text-foreground">{p.title}</span>
+                <span className="mt-0.5 block text-xs text-muted-foreground">{p.year}</span>
+                <span className="mt-1 block text-sm text-foreground/75">{p.line}</span>
               </Link>
             </li>
           ))}
