@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
-import { ArrowRight, Mail, FileText, Linkedin, Github, NotebookText, Star } from 'lucide-react';
+import { ArrowRight, Mail, FileText, Linkedin, Github, NotebookText, Star, ExternalLink } from 'lucide-react';
 import { SOCIAL_LINKS } from '@/lib/constants';
 import { withBasePath } from '@/lib/utils';
 
@@ -41,6 +41,7 @@ const publications: {
   equalContribution?: string[];
   venue: string;
   note?: string;
+  link?: { label: string; href: string };
 }[] = [
   {
     title: 'SCULPT: Spatially Constrained Updates via Learned Perceptual Trajectories for Safe Image Generation',
@@ -70,6 +71,7 @@ const publications: {
     title: 'Repairing the Trustworthiness of Distilled Language Models',
     authors: ['Kumar Shubham', 'Devendra Vyas', 'Vidushi Agarwal', 'Jayin Khanna', 'Prathosh AP'],
     venue: 'AI4GOOD Workshop @ NeurIPS 2026 [arXiv Preprint]',
+    link: { label: 'arXiv:2611.34831', href: 'https://arxiv.org/abs/2611.34831' },
   },
   {
     title: 'SafeSG: Scene-Graph Guided Repair for Safer Next-Scale Image Generation',
@@ -196,7 +198,20 @@ const AboutIntro = () => {
                   {pub.firstAuthor === 'first' ? 'First Author' : 'Co-First Author'}
                 </p>
               )}
-              <h3 className="text-base md:text-lg font-semibold text-foreground leading-snug">{pub.title}</h3>
+              <h3 className="text-base md:text-lg font-semibold text-foreground leading-snug">
+                {pub.link ? (
+                  <a
+                    href={pub.link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-primary hover:underline underline-offset-4"
+                  >
+                    {pub.title}
+                  </a>
+                ) : (
+                  pub.title
+                )}
+              </h3>
               <p className="mt-2 text-sm text-foreground/85">
                 {pub.authors.map((a, i) => (
                   <span key={a}>
@@ -233,6 +248,20 @@ const AboutIntro = () => {
                   </p>
                 );
               })()}
+              {pub.link && (
+                <p className="mt-3">
+                  <a
+                    href={pub.link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 rounded-full border border-primary bg-primary/15 px-3 py-1 text-xs font-semibold text-primary hover:bg-primary/25 transition-colors"
+                  >
+                    <FileText className="h-3.5 w-3.5" />
+                    {pub.link.label}
+                    <ExternalLink className="h-3 w-3" />
+                  </a>
+                </p>
+              )}
               {pub.note && (
                 <p className="mt-3">
                   <span className="inline-flex items-center rounded-full border border-primary bg-primary/15 px-3 py-1 text-xs font-semibold text-primary">
