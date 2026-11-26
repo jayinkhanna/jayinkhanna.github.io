@@ -84,6 +84,7 @@ export const PUBLICATIONS: Publication[] = [
     status: 'arXiv Preprint',
     tldr:
       'Post-hoc repair of trustworthiness regressions in distilled LLMs using proxy-data curvature and a preference-based objective: up to 8% improvement with under 1% perplexity cost.',
+    links: { arxiv: 'https://arxiv.org/abs/2611.34831' },
   },
   {
     id: 'safesg',
