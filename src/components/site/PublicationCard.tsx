@@ -6,10 +6,11 @@ export default function PublicationCard({ pub, compact = false }: { pub: Publica
   const links = pub.links ?? {};
   const linkItems = [
     links.pdf && { href: links.pdf, label: 'PDF', icon: FileText },
-    links.arxiv && { href: links.arxiv, label: 'arXiv', icon: ExternalLink },
+    links.arxiv && { href: links.arxiv, label: 'Read on arXiv', icon: ExternalLink },
     links.code && { href: links.code, label: 'Code', icon: Github },
     links.poster && { href: links.poster, label: 'Poster', icon: FileText },
   ].filter(Boolean) as { href: string; label: string; icon: typeof FileText }[];
+  const titleHref = links.arxiv ?? links.pdf;
 
   return (
     <article id={pub.id} className={`rounded-lg border border-border bg-card ${compact ? "p-4" : "p-5"} scroll-mt-20`}>
@@ -19,7 +20,20 @@ export default function PublicationCard({ pub, compact = false }: { pub: Publica
           {pub.firstAuthor === 'first' ? 'First Author' : 'Co-First Author'}
         </p>
       )}
-      <h3 className="text-base font-semibold leading-snug text-foreground md:text-lg">{pub.title}</h3>
+      <h3 className="text-base font-semibold leading-snug text-foreground md:text-lg">
+        {titleHref ? (
+          <a
+            href={titleHref}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline-offset-4 transition-colors hover:text-primary hover:underline"
+          >
+            {pub.title}
+          </a>
+        ) : (
+          pub.title
+        )}
+      </h3>
       <p className="mt-2 text-sm text-foreground/85">
         {pub.authors.map((a, i) => (
           <span key={a}>
@@ -51,9 +65,9 @@ export default function PublicationCard({ pub, compact = false }: { pub: Publica
               href={href}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 rounded-md border border-border px-2.5 py-1 font-medium text-primary hover:bg-primary/10"
+              className="inline-flex items-center gap-1.5 rounded-md border border-primary bg-primary/20 px-3.5 py-1.5 font-semibold text-primary shadow-sm transition-colors hover:border-primary hover:bg-primary hover:text-primary-foreground"
             >
-              <Icon className="h-3.5 w-3.5" />
+              <Icon className="h-4 w-4" />
               {label}
             </a>
           ))}
